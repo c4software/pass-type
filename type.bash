@@ -6,7 +6,7 @@ local delay=3
 check_sneaky_paths "$path"
 
 if [[ -f $passfile ]]; then
-    local temporary=$($GPG -d "${GPG_OPTS[@]}" "$passfile" | tail -n +1 | head -n 1)
+    local temporary=$($GPG -d "${GPG_OPTS[@]}" "$passfile" | tail -n +1 | head -n 1 | sed -e 's/\\/\\\\/g' | sed -e 's/"/\\"/g' )
     echo "The password will be type in $delay seconds"
     sleep $delay
     if [[ `uname` == 'Darwin' ]]
