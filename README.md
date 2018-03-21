@@ -18,6 +18,8 @@ Usage:
 
 ## Example
 
+![Example Pass-type](./example.gif)
+
 ```shell
 $ PASSWORD_STORE_ENABLE_EXTENSIONS=true pass type perso/demo
 The password will be type in 3 seconds
