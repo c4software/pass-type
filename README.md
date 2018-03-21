@@ -18,7 +18,7 @@ Usage:
 
 ## Example
 
-![Example Pass-type](./example.gif)
+![Example Pass-type](./sample.gif)
 
 ```shell
 $ PASSWORD_STORE_ENABLE_EXTENSIONS=true pass type perso/demo
