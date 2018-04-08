@@ -3,6 +3,7 @@
 local path="$1"
 local passfile="$PREFIX/$path.gpg"
 local delay=3
+local auto_submit=0
 check_sneaky_paths "$path"
 
 if [[ -f $passfile ]]; then
@@ -17,8 +18,16 @@ if [[ -f $passfile ]]; then
     if [[ `uname` == 'Darwin' ]]
     then
         osascript -e "tell application \"System Events\" to keystroke \"$temporary\""
+        if [[ $auto_submit -eq 1 ]]
+        then
+            osascript -e "tell application \"System Events\" to key code 52"    
+        fi
     else
         xdotools type "$temporary"
+        if [[ $auto_submit -eq 1 ]]
+        then
+            xdotool key KP_Enter    
+        fi
     fi
 elif [[ -z $path ]]; then
     die ""
