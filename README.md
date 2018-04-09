@@ -27,6 +27,24 @@ The password will be type in 3 seconds
 $ SUPER SECURE PASSWORD
 ```
 
+## Custom delay & auto-submit
+
+You can change the delay before the « typing » :
+
+```bash
+$ pass type -d 20 perso/demo
+The password will be type in 20 seconds
+```
+
+You can also send the enter keycode after simulate password typing with the ```-a``` option :
+
+```bash
+$ pass type -a perso/demo
+The password will be type in 3 seconds
+$ SUPER SECURE PASSWORD
+$
+```
+
 ## Requirements
 
 - ```pass``` 1.7.0 or later for extension support
