@@ -1,9 +1,28 @@
 #!/bin/bash
 
-local path="$1"
-local passfile="$PREFIX/$path.gpg"
 local delay=3
 local auto_submit=0
+
+while getopts ":ad:" opt; do
+  case ${opt} in
+    a )
+      auto_submit=1
+      ;;
+    d )
+      delay=$OPTARG
+      ;;
+    \? )
+      echo "Usage: pass type [-a] [-d] pass-name"
+      echo "    -a: Auto-submit the password (default false)"
+      echo "    -d: Delay before « typing » the passmord (default 3s)"
+      exit
+      ;;
+  esac
+done
+shift $(expr $OPTIND - 1 )
+
+local path="$1"
+local passfile="$PREFIX/$path.gpg"
 check_sneaky_paths "$path"
 
 if [[ -f $passfile ]]; then
