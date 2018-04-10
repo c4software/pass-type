@@ -3,6 +3,12 @@
 local delay=3
 local auto_submit=0
 
+usage() {
+	echo "Usage: pass type [-a] [-d] pass-name";
+	echo "    -a: Auto-submit the password (default false)";
+	echo "    -d: Delay before « typing » the passmord (default 3s)";
+}
+
 while getopts ":ad:" opt; do
   case ${opt} in
     a )
@@ -12,10 +18,8 @@ while getopts ":ad:" opt; do
       delay=$OPTARG
       ;;
     \? )
-      echo "Usage: pass type [-a] [-d] pass-name"
-      echo "    -a: Auto-submit the password (default false)"
-      echo "    -d: Delay before « typing » the passmord (default 3s)"
-      exit
+      usage;
+      exit 1;
       ;;
   esac
 done
