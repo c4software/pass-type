@@ -1,7 +1,7 @@
 #!/bin/bash
 
 local delay=3
-local auto_submit=0
+local auto_submit="0"
 
 usage() {
 	echo "Usage: pass type [-a] [-d] pass-name";
@@ -12,7 +12,7 @@ usage() {
 while getopts ":ad:" opt; do
   case ${opt} in
     a )
-      auto_submit=1
+      auto_submit="1"
       ;;
     d )
       delay=$OPTARG
@@ -41,15 +41,15 @@ if [[ -f $passfile ]]; then
     if [[ `uname` == 'Darwin' ]]
     then
         osascript -e "tell application \"System Events\" to keystroke \"$temporary\""
-        if [[ $auto_submit -eq 1 ]]
+        if [[ $auto_submit -eq "1" ]]
         then
-            osascript -e "tell application \"System Events\" to key code 52"    
+            osascript -e "tell application \"System Events\" to key code 76"
         fi
     else
         xdotools type "$temporary"
-        if [[ $auto_submit -eq 1 ]]
+        if [[ $auto_submit -eq "1" ]]
         then
-            xdotool key KP_Enter    
+            xdotool key KP_Enter
         fi
     fi
 elif [[ -z $path ]]; then
