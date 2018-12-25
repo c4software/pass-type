@@ -1,0 +1,65 @@
+.TH pass-type 1 "December 2018" "pass-type"
+
+.SH NAME
+pass type - A \fBpass\fP(1) extension for \fBtyping\fP instead of copy/pasting.
+
+.SH SYNOPSIS
+\fBpass type\fP [ \fIOPTIONS\fP ] \fIpass-name\fP
+
+.SH DESCRIPTION
+\fBpass type\fP extends the pass with a type command thats provide a command to type passwords directly with the help of \fBxdotool\fP.
+
+There's a delay (default: 3s) before typing starts.
+
+.SH EXAMPLES
+.TP
+Normal usage
+.B zx2c4@laptop ~ $ pass type perso/demo
+
+.TP
+Change delay (to 20 seconds)
+.B zx2c4@laptop ~ $ pass type -d 20 perso/demo
+
+.TP
+Send enter after password
+.B zx2c4@laptop ~ $ pass type -a perso/demo
+
+.SH SEE ALSO
+.BR pass(1),
+.BR pass-otp(1),
+.BR pass-tomb(1),
+.BR pass-file(1),
+.BR pass-update(1),
+.BR pass-import(1)
+
+
+.SH AUTHORS
+.B pass type
+was written by
+.MT c4software@gmail.com
+Brosseau Valentin
+.ME .
+
+
+.SH COPYING
+MIT License
+
+Copyright (c) 2018 Brosseau Valentin
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
