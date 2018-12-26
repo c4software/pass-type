@@ -16,6 +16,10 @@ Usage:
 - Enable password-store extensions by setting PASSWORD_STORE_ENABLE_EXTENSIONS=true
 - copy type.bash in ~/password-store/.extensions
 
+### Arch Linux
+
+You can install this extension by installing the `pass-type-git` package.
+
 ## Example
 
 ![Example Pass-type](./sample.gif)
