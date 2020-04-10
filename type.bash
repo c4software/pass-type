@@ -46,7 +46,7 @@ if [[ -f $passfile ]]; then
             osascript -e "tell application \"System Events\" to key code 76"
         fi
     else
-        xdotools type "$temporary"
+        xdotool type "$temporary"
         if [[ $auto_submit -eq "1" ]]
         then
             xdotool key KP_Enter
