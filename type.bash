@@ -6,7 +6,7 @@ local auto_submit="0"
 usage() {
 	echo "Usage: pass type [-a] [-d] pass-name";
 	echo "    -a: Auto-submit the password (default false)";
-	echo "    -d: Delay before « typing » the password (default 3s)";
+	echo "    -d: Delay before « typing » the passmord (default 3s)";
 }
 
 while getopts ":ad:" opt; do
