@@ -30,7 +30,7 @@ local passfile="$PREFIX/$path.gpg"
 check_sneaky_paths "$path"
 
 if [[ -f $passfile ]]; then
-    local temporary=$($GPG -d "${GPG_OPTS[@]}" "$passfile" | tail -n +1 | head -n 1 | sed -e 's/\\/\\\\/g' | sed -e 's/"/\\"/g' )
+    local temporary=$($GPG -d "${GPG_OPTS[@]}" "$passfile" | tail -n +1 | head -n 1)
 
     while [ $delay -gt 0 ]; do
         echo -ne "The password will be type in $delay seconds.\033[0K\r"
@@ -40,13 +40,14 @@ if [[ -f $passfile ]]; then
 
     if [[ `uname` == 'Darwin' ]]
     then
-        osascript -e "tell application \"System Events\" to keystroke \"$temporary\""
+        osascript -e "on run argv" -e 'tell application "System Events" to keystroke (item 1 of argv as string)' -e "end" -- "$temporary"
+        
         if [[ $auto_submit -eq "1" ]]
         then
-            osascript -e "tell application \"System Events\" to key code 76"
+            osascript -e 'tell application "System Events" to key code 76'
         fi
     else
-        xdotools type "$temporary"
+        xdotool type "$temporary"
         if [[ $auto_submit -eq "1" ]]
         then
             xdotool key KP_Enter
